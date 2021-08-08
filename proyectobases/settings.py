@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #############################
+    'rest_framework',
     'client.apps.ClientConfig',
+    'catalog.apps.CatalogConfig',
+    'pedido.apps.PedidoConfig',
 ]
 
 MIDDLEWARE = [
