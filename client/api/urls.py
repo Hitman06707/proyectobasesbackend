@@ -4,9 +4,9 @@ from .views import PaisListApiView, RegionListApiView, DireccionListApiView, Cli
 
 
 urlpatterns = [
-    path('Pais', PaisListApiView.as_view()),
-    path('Region', RegionListApiView.as_view()),
-    path('Direccion', DireccionListApiView.as_view()),
-    path('Cliente', ClienteListApiView.as_view()),
-    path('Usuario', UsuarioListApiView.as_view()),
+    path('pais', PaisListApiView.as_view()),
+    path('region', RegionListApiView.as_view()),
+    path('direccion', DireccionListApiView.as_view()),
+    path('cliente', ClienteListApiView.as_view()),
+    path('usuario', UsuarioListApiView.as_view()),
 ]

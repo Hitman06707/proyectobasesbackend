@@ -22,4 +22,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('client/', include('client.urls')),
+    path('catalog/', include('catalog.urls')),
+    #path('pedidos/', include('pedidos.urls')),
 ]
