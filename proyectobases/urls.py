@@ -23,5 +23,5 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('client/', include('client.urls')),
     path('catalog/', include('catalog.urls')),
-    #path('pedidos/', include('pedidos.urls')),
+    path('pedido/', include('pedido.urls')),
 ]
