@@ -24,4 +24,5 @@ urlpatterns = [
     path('client/', include('client.urls')),
     path('catalog/', include('catalog.urls')),
     path('pedido/', include('pedido.urls')),
+    path('reporte/', include('reporte.urls')),
 ]

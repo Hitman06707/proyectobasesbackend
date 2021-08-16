@@ -3,9 +3,11 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import permissions
+from rest_framework.decorators import permission_classes
 from catalog.models import Detalle_producto, Producto, Vista_producto
 from .serializers import Detalle_productoSerializer, ProductoSerializer, Vista_productoSerializer
 
+@permission_classes([])
 class Detalle_productoListApiView(APIView):
     # add permission to check if user is authenticated
     permission_classes = [permissions.IsAuthenticated]
@@ -36,6 +38,7 @@ class Detalle_productoListApiView(APIView):
 
     #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@permission_classes([])
 class ProductoListApiView(APIView):
     # add permission to check if user is authenticated
     permission_classes = [permissions.IsAuthenticated]
@@ -49,6 +52,7 @@ class ProductoListApiView(APIView):
         serializer = ProductoSerializer(productos, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+@permission_classes([])
 class Vista_productoListApiView(APIView):
     # add permission to check if user is authenticated
     permission_classes = [permissions.IsAuthenticated]

@@ -3,9 +3,11 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import permissions
+from rest_framework.decorators import permission_classes
 from client.models import Pais, Region, Direccion, Cliente, Usuario
 from .serializers import PaisSerializer, RegionSerializer, DireccionSerializer, ClienteSerializer, UsuarioSerializer
 
+@permission_classes([])
 class PaisListApiView(APIView):
     # add permission to check if user is authenticated
     permission_classes = [permissions.IsAuthenticated]
@@ -36,6 +38,7 @@ class PaisListApiView(APIView):
 
     #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@permission_classes([])
 class RegionListApiView(APIView):
     # add permission to check if user is authenticated
     permission_classes = [permissions.IsAuthenticated]
@@ -49,6 +52,7 @@ class RegionListApiView(APIView):
         serializer = PaisSerializer(regiones, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+@permission_classes([])
 class DireccionListApiView(APIView):
     # add permission to check if user is authenticated
     permission_classes = [permissions.IsAuthenticated]
@@ -62,6 +66,7 @@ class DireccionListApiView(APIView):
         serializer = DireccionSerializer(direcciones, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+@permission_classes([])
 class ClienteListApiView(APIView):
     # add permission to check if user is authenticated
     permission_classes = [permissions.IsAuthenticated]
@@ -75,6 +80,7 @@ class ClienteListApiView(APIView):
         serializer = ClienteSerializer(clientes, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+@permission_classes([])
 class UsuarioListApiView(APIView):
     # add permission to check if user is authenticated
     permission_classes = [permissions.IsAuthenticated]

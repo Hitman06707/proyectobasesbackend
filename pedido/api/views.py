@@ -3,9 +3,11 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import permissions
+from rest_framework.decorators import permission_classes
 from pedido.models import Tipo_Pago, Detalle_pedido, Pago_pedido, Pedido, Tipo_entrega_envio, Reembolso, Envio
 from .serializers import Tipo_PagoSerializer, Detalle_pedidoSerializer, Pago_pedidoSerializer, PedidoSerializer, Tipo_entrega_envioSerializer, ReembolsoSerializer, EnvioSerializer
 
+@permission_classes([])
 class Tipo_PagoListApiView(APIView):
     # add permission to check if user is authenticated
     permission_classes = [permissions.IsAuthenticated]
@@ -36,6 +38,7 @@ class Tipo_PagoListApiView(APIView):
 
     #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@permission_classes([])
 class Detalle_pedidoListApiView(APIView):
     # add permission to check if user is authenticated
     permission_classes = [permissions.IsAuthenticated]
@@ -49,6 +52,7 @@ class Detalle_pedidoListApiView(APIView):
         serializer = Detalle_pedidoSerializer(detalles, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+@permission_classes([])
 class Pago_pedidoListApiView(APIView):
     # add permission to check if user is authenticated
     permission_classes = [permissions.IsAuthenticated]
@@ -62,6 +66,7 @@ class Pago_pedidoListApiView(APIView):
         serializer = Pago_pedidoSerializer(pagos, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+@permission_classes([])
 class PedidoListApiView(APIView):
     # add permission to check if user is authenticated
     permission_classes = [permissions.IsAuthenticated]
@@ -75,6 +80,7 @@ class PedidoListApiView(APIView):
         serializer = PedidoSerializer(pedidos, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+@permission_classes([])
 class Tipo_entrega_envioListApiView(APIView):
     # add permission to check if user is authenticated
     permission_classes = [permissions.IsAuthenticated]
@@ -88,6 +94,7 @@ class Tipo_entrega_envioListApiView(APIView):
         serializer = Tipo_entrega_envioSerializer(tipoentregas, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+@permission_classes([])
 class ReembolsoListApiView(APIView):
     # add permission to check if user is authenticated
     permission_classes = [permissions.IsAuthenticated]
@@ -101,6 +108,7 @@ class ReembolsoListApiView(APIView):
         serializer = ReembolsoSerializer(reembolsos, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+@permission_classes([])
 class EnvioListApiView(APIView):
     # add permission to check if user is authenticated
     permission_classes = [permissions.IsAuthenticated]

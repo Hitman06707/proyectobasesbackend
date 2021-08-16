@@ -31,6 +31,9 @@ class Cliente (models.Model):
 	numero_telefono  = models.CharField   (max_length= 8, verbose_name='Segundo nombre')
 	email            = models.CharField   (max_length=50, verbose_name='Segundo nombre')	
 
+	def __str__(self):
+		return str(self.nombre1)
+
 class Usuario (models.Model):
     id_login         = models.AutoField   (primary_key=True, unique=True)
     UserName         = models.CharField   (max_length=50, verbose_name='Usuario')

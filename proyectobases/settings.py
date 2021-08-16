@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'client.apps.ClientConfig',
     'catalog.apps.CatalogConfig',
     'pedido.apps.PedidoConfig',
+    'reporte.apps.ReporteConfig',
 ]
 
 MIDDLEWARE = [
