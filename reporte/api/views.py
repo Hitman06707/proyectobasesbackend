@@ -1,4 +1,3 @@
-from django.core import serializers
 from django.http import HttpResponse
 
 from rest_framework.views import APIView
@@ -13,8 +12,6 @@ from client.models  import Pais, Region, Direccion, Cliente, Usuario
 
 from django.db.models import Count
 
-#from .serializers import PaisSerializer, RegionSerializer, DireccionSerializer, ClienteSerializer, UsuarioSerializer
-
 @permission_classes([])
 class usuariospaisesApiView(APIView):
     # add permission to check if user is authenticated
@@ -25,16 +22,16 @@ class usuariospaisesApiView(APIView):
         '''
         List all the todo items for given requested user
         '''
-        result = Pais.objects.annotate( ccount = Count('region__direccion__cliente' ) )
-        #qs_json = serializers.serialize('json', result)
-        breakpoint()
+        result  = Pais.objects.annotate( ccount = Count('region__direccion__cliente' ) )
+        data = [{
+            'id_pais'           : x.id_pais,
+            'codigo_postal'     : x.codigo_postal,
+            'nombre'            : x.nombre,
+            'ciudad'            : x.ciudad,
+            'canitdad_usuarios' : x.ccount
+        } for x in result]
 
-        dictionaries = [ obj.as_dict() for obj in result ]
-        return Response(json.dumps(dictionaries), status=status.HTTP_200_OK)
-
-        #return Response(qs_json, status=status.HTTP_200_OK )
-#        return Response(serializer.data, status=status.HTTP_200_OK)
-        
+        return Response(data, status=status.HTTP_200_OK)        
 
     # 2. Create
     # def post(self, request, *args, **kwargs):
